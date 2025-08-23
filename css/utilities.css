@@ -1,0 +1,248 @@
+
+:root {
+  --nav-height: 96px;
+}
+
+html {
+  scroll-padding-top: var(--nav-height);
+}
+
+/* Icons */
+
+.right-arrow-icon {
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+}
+
+.footer-icon {
+  width: 20px;
+  height: 20px;
+}
+
+a.icon-link {
+  transition: transform 200ms ease-in-out;
+}
+
+a.icon-link:hover {
+  cursor: pointer;
+  stroke-width: 5;
+  margin: 0;
+  transform: rotate(15deg);
+}
+
+
+/* Navbar Styling */
+
+.navbar {
+  width: 100%;
+  padding: 30px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 1000;
+  box-shadow: none;
+}
+
+/* Responsive navbar margins */
+@media only screen and (max-width: 1200px) {
+  .navbar {
+    padding: 30px 40px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .navbar {
+    padding: 30px 30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    padding: 30px 20px;
+  }
+}
+
+.nav-title-link {
+  color: black;
+  text-decoration: none;
+}
+
+.nav-title-link:hover {
+  text-decoration: underline;
+}
+
+.nav-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  animation: titleEntrance 1.2s ease-out, titleFloat 3s ease-in-out infinite 1.2s;
+  color: #8B0000;
+}
+
+.nav-title:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-title::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4a90e2, #7b68ee);
+  transition: width 0.3s ease;
+}
+
+.nav-title:hover::after {
+  width: 100%;
+}
+
+/* Dropdown under title */
+/* Center menu in navbar */
+.nav-center-menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-menu a {
+  color: #141414;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.nav-menu a:hover {
+  text-decoration: none;
+  transform: scale(1.25) translateY(-4px);
+  color: #8B0000;
+  animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1.25) translateY(-4px);
+  }
+  50% {
+    transform: scale(1.25) translateY(-8px);
+  }
+}
+
+@keyframes titleEntrance {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) translateY(-20px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-10px) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes titleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 800px and below) */
+@media only screen and (max-width: 800px) {
+  :root { --nav-height: 72px; }
+  .navbar {
+    padding: 20px 20px;
+    background-color: white
+  }
+  .nav-center-menu {
+    position: static;
+    transform: none;
+    order: 2;
+    margin: 0 12px;
+  }
+  .nav-menu {
+    gap: 16px;
+  }
+}
+
+/* Ensure in-page anchors leave space for fixed navbar on all pages */
+[id] {
+  scroll-margin-top: var(--nav-height);
+}
+
+
+/* Button Styling */
+
+a.button {
+  padding: 8px 16px;
+  border: 3px solid #141414;
+  border-radius: 50px;
+  color: black;
+  text-decoration: none;
+  width: fit-content;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+a.button:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  cursor: pointer;
+}
+
+
+/* Footer Styling */
+
+#footer {
+  width: 100%;
+  display: flex;
+  padding: 30px 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Link Styling */
+a.no-underline {
+  text-decoration: none;
+  color: black
+}
+
+a.no-underline:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Small devices (portrait tablets and large phones, 800px and below) */
+@media only screen and (max-width: 800px) {
+  #footer {
+    padding: 20px 20px;
+  }
+}
